@@ -140,7 +140,7 @@ drop policy if exists piani_sel on public.piani;
 drop policy if exists piani_ins on public.piani;
 drop policy if exists piani_upd on public.piani;
 drop policy if exists piani_del on public.piani;
-create policy piani_sel on public.piani for select to authenticated using (public.ruolo(id) is not null);
+create policy piani_sel on public.piani for select to authenticated using (owner = auth.uid() or public.ruolo(id) is not null);
 create policy piani_ins on public.piani for insert to authenticated with check (owner = auth.uid());
 create policy piani_upd on public.piani for update to authenticated using (public.ruolo(id) in ('owner','admin')) with check (public.ruolo(id) in ('owner','admin'));
 create policy piani_del on public.piani for delete to authenticated using (owner = auth.uid());
