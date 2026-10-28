@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0A111B" id="tc">
+<meta name="theme-color" content="#0E1630" id="tc">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -14,7 +14,7 @@
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&family=Yellowtail&display=swap">
 <style>
 :root{
   --bg:#E9EDF1; --surface:#FFFFFF; --surface-2:#F3F5F8; --ink:#0F1B2D; --ink-2:#506074; --line:#D3DAE3;
@@ -50,29 +50,82 @@ label.f{display:flex;flex-direction:column;gap:5px;font-size:12.5px;color:var(--
 .mono{font-family:var(--f-mono)}
 
 /* barra */
+:root{--brand:#FF6B4A;--cream:#FFF1D6;--night:#0E1630;--night-2:#1B2A4E}
 .top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:calc(14px + env(safe-area-inset-top)) var(--gx) 14px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.mark{display:flex;gap:4px;align-items:flex-end;height:26px}
-.mark i{display:block;width:8px;border-radius:3px}
-.logo b{font-family:var(--f-display);font-weight:800;font-size:24px;text-transform:uppercase;letter-spacing:.03em;line-height:1}
-.who{display:flex;align-items:center;gap:10px;min-width:0}
-.who span{font-size:13px;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:42vw}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;min-width:0}
+.logo img{width:42px;height:42px;border-radius:11px;flex:none;box-shadow:0 4px 14px rgba(14,22,48,.25)}
+.wm{display:flex;align-items:baseline;gap:7px;line-height:1;white-space:nowrap}
+.wm b{font-family:var(--f-display);font-weight:800;font-size:21px;letter-spacing:.14em;text-transform:uppercase}
+.wm i{font-family:'Yellowtail',cursive;font-style:normal;font-size:27px;color:var(--brand);letter-spacing:0}
+.who{display:flex;align-items:center;gap:8px;min-width:0}
+.who span{font-size:13px;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:34vw}
+.btn.brand{background:var(--brand);border-color:var(--brand);color:#fff}
 
 /* accesso */
-.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding:30px var(--gx) 60px}
-.hero h1{font-family:var(--f-display);font-weight:800;font-size:clamp(46px,8vw,92px);line-height:.9;text-transform:uppercase;margin:0 0 18px;letter-spacing:.01em}
-.hero h1 em{font-style:normal;color:var(--focus)}
-.hero p.lead{font-size:18px;color:var(--ink-2);max-width:560px;margin:0 0 22px}
-.feats{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:600px}
-.feats div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:13.5px;color:var(--ink-2)}
-.feats b{display:block;color:var(--ink);font-size:14.5px}
-.auth{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:22px}
+.hero{margin:6px var(--gx) 50px;border-radius:30px;padding:clamp(26px,4.5vw,56px);color:#fff;position:relative;overflow:hidden;
+  background:radial-gradient(120% 120% at 18% 0%,var(--night-2) 0%,var(--night) 55%,#0A0F22 100%);
+  display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,4vw,56px);align-items:center}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.07;
+  background:repeating-linear-gradient(90deg,#fff 0 1px,transparent 1px 72px)}
+.hero>*{position:relative}
+.kick{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);border:1px solid rgba(255,241,214,.28);border-radius:999px;padding:6px 12px;margin-bottom:22px}
+.kick::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--brand)}
+.hero h1{font-family:var(--f-display);font-weight:800;font-size:clamp(46px,6.2vw,86px);line-height:1;text-transform:uppercase;margin:0 0 20px;letter-spacing:.01em}
+.hero h1 span{display:block}
+.hero h1 .acc{color:var(--brand)}
+.hero h1 .scr{font-family:'Yellowtail',cursive;text-transform:none;font-weight:400;color:var(--cream);font-size:.62em;line-height:1.15;letter-spacing:0;margin-top:2px}
+.hero p.lead{font-size:17px;line-height:1.55;color:#C6D1E3;max-width:540px;margin:0 0 26px}
+.feats{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:580px}
+.feats div{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.11);border-radius:16px;padding:13px 15px;font-size:13.5px;color:#AEBBD0}
+.feats b{display:block;color:#fff;font-size:14.5px;margin-bottom:2px}
+.feats i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:7px;vertical-align:1px}
+.mock{display:flex;flex-direction:column;gap:6px;margin-top:26px;max-width:580px}
+.mock div{display:flex;gap:6px}
+.mock span{height:12px;border-radius:6px;opacity:.9}
+.auth{background:var(--surface);color:var(--ink);border-radius:24px;padding:24px;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.auth h2{font-family:var(--f-display);font-weight:800;font-size:28px;text-transform:uppercase;margin:0 0 4px;line-height:1}
+.auth>p{margin:0 0 16px;color:var(--ink-2);font-size:14px}
 .seg{display:grid;grid-template-columns:1fr 1fr;background:var(--surface-2);border-radius:12px;padding:4px;margin-bottom:16px}
 .seg button{border:0;background:transparent;border-radius:9px;min-height:40px;font-weight:600;color:var(--ink-2)}
 .seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
 .auth form{display:flex;flex-direction:column;gap:12px}
+.auth .btn[type=submit]{background:var(--brand);border-color:var(--brand);color:#fff}
 .linkbtn{border:0;background:transparent;color:var(--ink-2);text-decoration:underline;font-size:13.5px;padding:4px 0;align-self:flex-start}
-@media (max-width:860px){.hero{grid-template-columns:1fr;gap:26px;padding-top:10px}.feats{grid-template-columns:1fr}}
+@media (max-width:900px){.hero{grid-template-columns:1fr;border-radius:24px;gap:20px}.mock{display:none}.hl{display:contents}.kick{order:1;justify-self:start;margin-bottom:0}.hero h1{order:2;margin:0}.auth{order:3}.hero p.lead{order:4;margin:6px 0 0}.feats{order:5}}
+@media (max-width:560px){.feats{grid-template-columns:1fr}.hero{margin:4px 10px 30px}.wm b{font-size:17px}.wm i{font-size:22px}.logo img{width:36px;height:36px}}
+
+/* statistiche */
+.live{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.live i{width:9px;height:9px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(31,157,99,.6);animation:pulse 1.8s infinite}
+.live.off i{background:var(--warn);animation:none}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(31,157,99,.55)}70%{box-shadow:0 0 0 9px rgba(31,157,99,0)}100%{box-shadow:0 0 0 0 rgba(31,157,99,0)}}
+.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,170px),1fr));gap:10px;margin-bottom:14px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+.kpi b{display:block;font-family:var(--f-display);font-weight:800;font-size:40px;line-height:1;color:var(--ink)}
+.kpi span{display:block;font-size:13px;font-weight:600;margin-top:4px}
+.kpi small{display:block;font-family:var(--f-mono);font-size:11px;color:var(--ink-2);margin-top:2px}
+.kpi.hi{background:var(--night);border-color:var(--night);color:#fff}.kpi.hi b{color:var(--brand)}.kpi.hi small{color:#9AA9BB}
+.cards2{display:grid;grid-template-columns:1.3fr 1fr;gap:14px;margin-bottom:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 18px;min-width:0}
+.card h3{font-family:var(--f-display);font-weight:800;font-size:22px;text-transform:uppercase;margin:0 0 10px;letter-spacing:.02em}
+.feed{display:flex;flex-direction:column;max-height:420px;overflow:auto}
+.feed div{display:grid;grid-template-columns:56px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:13.5px}
+.feed div:first-child{border-top:0}
+.feed time{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-2);padding-top:2px}
+.feed b{font-weight:600}.feed em{font-style:normal;color:var(--ink-2)}
+.feed .new{animation:flash 1.6s ease-out}
+@keyframes flash{from{background:color-mix(in srgb,var(--brand) 22%,transparent)}to{background:transparent}}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.tbl th{text-align:left;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);font-weight:500;padding:8px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+.tbl td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl td.n{font-family:var(--f-mono);text-align:right;white-space:nowrap}
+.tbl tr:last-child td{border-bottom:0}
+.tblw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.bars{width:100%;height:auto;display:block}
+.sbar{display:flex;align-items:center;gap:10px;margin:6px 0;font-size:13.5px}
+.sbar span{width:110px;flex:none}.sbar i{display:block;height:12px;border-radius:6px;background:var(--brand)}.sbar b{font-family:var(--f-mono);font-weight:500;font-size:12px}
+@media (max-width:860px){.cards2{grid-template-columns:1fr}}
 
 /* elenco piani */
 .wrap{padding:6px var(--gx) 80px}
@@ -135,25 +188,32 @@ label.f{display:flex;flex-direction:column;gap:5px;font-size:12.5px;color:var(--
 </head>
 <body>
 <header class="top">
-  <a class="logo" href="./" aria-label="Production Planner"><span class="mark"><i style="height:12px;background:#E8590C"></i><i style="height:20px;background:#2E7BE6"></i><i style="height:26px;background:#12A38A"></i></span><b>Production Planner</b></a>
-  <div class="who" id="who" hidden><span id="who-mail"></span><button class="btn ghost small" type="button" id="logout">Esci</button></div>
+  <a class="logo" href="./" aria-label="Production Planner"><img src="icon-192.png" alt=""><span class="wm"><b>Production</b><i>Planner</i></span></a>
+  <div class="who" id="who" hidden><span id="who-mail"></span><a class="btn brand small" href="#statistiche" id="b-stats" hidden>Statistiche</a><button class="btn ghost small" type="button" id="logout">Esci</button></div>
 </header>
 
 <div class="loading" id="v-load">Carico…</div>
 
 <!-- ACCESSO -->
 <section class="hero" id="v-auth" hidden>
-  <div>
-    <h1>Il piano di produzione,<br><em>per ogni lavoro</em></h1>
+  <div class="hl">
+    <div class="kick">Piani di produzione per eventi</div>
+    <h1><span>Ogni lavoro,</span><span class="acc">il suo piano.</span><span class="scr">dal montaggio all'ultima nota</span></h1>
     <p class="lead">Crea un piano per ogni cliente o evento: giorni, location, categorie, team e staff. Il tuo team lo compila e lo consulta dal telefono, tutti insieme e in tempo reale.</p>
     <div class="feats">
-      <div><b>Agenda e timeline</b>Le giornate per orario o per location, con zoom a due dita.</div>
-      <div><b>Export pronti</b>PDF grafici, lista materiali, impegno location, timeline A3 e CSV.</div>
-      <div><b>Accessi per persona</b>Admin, modifica di alcuni campi o sola lettura.</div>
-      <div><b>Anche offline</b>Il piano resta consultabile senza rete.</div>
+      <div><b><i style="background:#FF6B4A"></i>Agenda e timeline</b>Le giornate per orario o per location, con zoom a due dita.</div>
+      <div><b><i style="background:#2E7BE6"></i>Export pronti</b>PDF grafici, lista materiali, impegno location, timeline A3 e CSV.</div>
+      <div><b><i style="background:#12A38A"></i>Accessi per persona</b>Admin, modifica di alcuni campi o sola lettura.</div>
+      <div><b><i style="background:#FFB443"></i>Anche offline</b>Il piano resta consultabile senza rete.</div>
+    </div>
+    <div class="mock" aria-hidden="true">
+      <div><span style="width:18%;background:#FF6B4A"></span><span style="width:30%;background:#2E7BE6"></span><span style="width:12%;background:#FFB443"></span></div>
+      <div><span style="width:8%;background:transparent"></span><span style="width:26%;background:#12A38A"></span><span style="width:20%;background:#8B5CF6"></span><span style="width:16%;background:#FF6B4A"></span></div>
+      <div><span style="width:32%;background:#2E7BE6"></span><span style="width:10%;background:#D6336C"></span><span style="width:22%;background:#12A38A"></span></div>
     </div>
   </div>
   <div class="auth">
+    <h2>Benvenuto</h2><p>Accedi ai tuoi piani o crea un account.</p>
     <div class="seg" id="seg"><button type="button" data-m="in" aria-pressed="true">Accedi</button><button type="button" data-m="up" aria-pressed="false">Registrati</button></div>
     <form id="f-in">
       <label class="f">Email<input id="in-mail" type="email" autocomplete="username" inputmode="email" required></label>
@@ -181,6 +241,21 @@ label.f{display:flex;flex-direction:column;gap:5px;font-size:12.5px;color:var(--
 <section class="wrap" id="v-list" hidden>
   <div class="head"><div><h1>I tuoi piani</h1><p id="l-sub"></p></div><a class="btn" href="#nuovo">+ Nuovo piano</a></div>
   <div class="grid" id="grid"></div>
+</section>
+
+<!-- STATISTICHE -->
+<section class="wrap" id="v-stats" hidden>
+  <div class="head"><div><h1>Statistiche</h1><p><span class="live" id="st-live"><i></i><span id="st-when">collegamento…</span></span></p></div><a class="btn ghost" href="#">I tuoi piani</a></div>
+  <div class="kpis" id="st-kpi"></div>
+  <div class="cards2">
+    <div class="card"><h3>Modifiche negli ultimi 30 giorni</h3><div id="st-chart"></div></div>
+    <div class="card"><h3>In diretta</h3><div class="feed" id="st-feed"></div></div>
+  </div>
+  <div class="card" style="margin-bottom:14px"><h3>Piani</h3><div class="tblw" id="st-plans"></div></div>
+  <div class="cards2">
+    <div class="card"><h3>Utenti</h3><div class="tblw" id="st-users"></div></div>
+    <div class="card"><h3>Stato delle voci</h3><div id="st-stati"></div><h3 style="margin-top:18px">Materiali</h3><div id="st-mat"></div></div>
+  </div>
 </section>
 
 <!-- EDITOR -->
@@ -276,7 +351,7 @@ var RLBL={owner:'Proprietario',admin:'Admin',campi:'Alcuni campi',lettura:'Sola 
 var api=null, user=null, mode='demo';
 
 function toast(m){var t=$('#toast'); t.textContent=m; t.hidden=false; clearTimeout(toast.t); toast.t=setTimeout(function(){t.hidden=true;},3200);}
-function show(v){['v-load','v-auth','v-list','v-ed'].forEach(function(id){$('#'+id).hidden=id!==v;}); window.scrollTo(0,0);}
+function show(v){ if(v!=='v-stats') stopStats(); ['v-load','v-auth','v-list','v-ed','v-stats'].forEach(function(id){$('#'+id).hidden=id!==v;}); window.scrollTo(0,0);}
 function dlab(d){var dt=new Date(d+'T12:00:00Z'); return GG3[dt.getUTCDay()]+' '+dt.getUTCDate()+' '+MESI3[dt.getUTCMonth()];}
 function addDays(d,n){var dt=new Date(d+'T12:00:00Z'); dt.setUTCDate(dt.getUTCDate()+n); return dt.toISOString().slice(0,10);}
 function today(){var d=new Date(); return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());}
@@ -299,6 +374,14 @@ function demoApi(){
       else { p=Object.assign({id:'demo-'+Date.now().toString(36),created_at:new Date().toISOString(),membri:mem},obj); a.push(p); }
       save(a); return p;},
     remove:async function(id){save(load().filter(function(p){return p.id!==id;}));},
+    isSuper:async function(){return true;},
+    stats:async function(){ var ps=load(), now=new Date(); return {ora:now.toISOString(),utenti:3,utenti_confermati:3,attivi_24h:2,attivi_7g:3,piani:ps.length,voci:42,task:9,task_fatte:4,membri:5,materiali:12,materiali_ok:5,modifiche_oggi:17,modifiche_7g:96,
+      giorni:Array.from({length:30},function(_,i){var d=new Date(now); d.setDate(d.getDate()-29+i); return {g:d.toISOString().slice(0,10),n:Math.round(Math.max(0,Math.sin(i/3)*12+8+Math.random()*6))};}),
+      stati:{'Da confermare':18,'Confermato':20,'Fatto':4},
+      piani_elenco:ps.map(function(p){return {id:p.id,nome:p.nome,cliente:p.cliente,colore:p.colore,proprietario:'demo@locale',dal:(p.giorni[0]||{}).d,al:(p.giorni[p.giorni.length-1]||{}).d,voci:21,task:4,persone:(p.membri||[]).length,ultima:now.toISOString()};}),
+      utenti_elenco:[{email:'roca.filippo1999@gmail.com',created_at:now.toISOString(),ultimo_accesso:now.toISOString(),confermato:true,piani_creati:ps.length,inviti:0,modifiche:61},{email:'collega@esempio.it',created_at:now.toISOString(),ultimo_accesso:null,confermato:true,piani_creati:0,inviti:1,modifiche:12}],
+      ultime:[{at:now.toISOString(),email:'collega@esempio.it',azione:'modifica',oggetto:'Soundcheck',piano:(ps[0]||{}).nome||'Piano',colore:'#FF6B4A'},{at:new Date(now-600000).toISOString(),email:'roca.filippo1999@gmail.com',azione:'nuova',oggetto:'Apertura cancelli',piano:(ps[0]||{}).nome||'Piano',colore:'#FF6B4A'}]}; },
+    watch:function(cb){ cb(null,'SUBSCRIBED'); return function(){}; },
     copyVoci:async function(from,to){ try{ var v=JSON.parse(localStorage.getItem('pp-demo-'+from)||'[]'); localStorage.setItem('pp-demo-'+to,JSON.stringify(v.map(function(r){return Object.assign({},r,{id:'d-'+Math.random().toString(36).slice(2)});}))); return v.length; }catch(e){return 0;} }
   };
 }
@@ -309,7 +392,7 @@ function sbApi(sb){
       if(r.error) throw r.error; var ps=r.data||[];
       var mm=await sb.from('membri').select('piano_id,ruolo').eq('email',(user.email||'').toLowerCase());
       var mr={}; (mm.data||[]).forEach(function(m){mr[m.piano_id]=m.ruolo;});
-      return ps.map(function(p){return Object.assign({ruolo:p.owner===user.id?'owner':(mr[p.id]||'lettura')},p);});
+      return ps.map(function(p){return Object.assign({ruolo:p.owner===user.id?'owner':(mr[p.id]||'super')},p);}).filter(function(p){return p.ruolo!=='super';});
     },
     get:async function(id){var r=await sb.from('piani').select('*').eq('id',id).maybeSingle(); if(r.error) throw r.error; return r.data;},
     members:async function(id){var r=await sb.from('membri').select('email,ruolo,nome').eq('piano_id',id).order('email'); if(r.error) throw r.error; return r.data||[];},
@@ -324,6 +407,9 @@ function sbApi(sb){
       return p;
     },
     remove:async function(id){var r=await sb.from('piani').delete().eq('id',id); if(r.error) throw r.error;},
+    isSuper:async function(){ var r=await sb.rpc('is_super'); return !r.error&&r.data===true; },
+    stats:async function(){ var r=await sb.rpc('statistiche'); if(r.error) throw r.error; return r.data; },
+    watch:function(cb){ var ch=sb.channel('registro-live').on('postgres_changes',{event:'INSERT',schema:'public',table:'registro'},function(p){cb(p.new);}).subscribe(function(st){ cb(null,st); }); return function(){ sb.removeChannel(ch); }; },
     copyVoci:async function(from,to){
       var r=await sb.from('voci').select('*').eq('piano_id',from).limit(5000); if(r.error) throw r.error;
       var rows=(r.data||[]).map(function(v){var o=Object.assign({},v); delete o.id; delete o.updated_at; o.piano_id=to; o.materiali_ok=false; o.updated_by=user.email||''; return o;});
@@ -470,13 +556,64 @@ $('#ed').addEventListener('submit',async function(ev){
   b.disabled=false; b.textContent=ED.id?'Salva le modifiche':'Crea il piano';
 });
 
+/* ---------- statistiche (solo amministratore del servizio) ---------- */
+var stUnsub=null, stTimer=null, stDeb=null, stLast=null;
+function stopStats(){ if(stUnsub){stUnsub(); stUnsub=null;} clearInterval(stTimer); stTimer=null; clearTimeout(stDeb); }
+function hm(t){ if(!t) return '—'; var d=new Date(t); return pad(d.getHours())+':'+pad(d.getMinutes()); }
+function ago(t){ if(!t) return 'mai'; var s=(Date.now()-new Date(t).getTime())/1000; if(s<60) return 'ora'; if(s<3600) return Math.floor(s/60)+' min fa'; if(s<86400) return Math.floor(s/3600)+' h fa'; var d=Math.floor(s/86400); return d===1?'ieri':d+' giorni fa'; }
+function dd(t){ if(!t) return '—'; return dlab(String(t).slice(0,10)); }
+function fmtN(n){ return Number(n||0).toLocaleString('it-IT'); }
+function chart30(g){
+  var W=560,H=170,P=18,mx=Math.max(1,Math.max.apply(null,g.map(function(x){return x.n;}))),bw=(W-P)/g.length;
+  var h='<svg class="bars" viewBox="0 0 '+W+' '+H+'">';
+  for(var k=0;k<=2;k++){ var y=10+(H-36)*k/2; h+='<line x1="'+P+'" x2="'+W+'" y1="'+y+'" y2="'+y+'" stroke="currentColor" stroke-opacity=".12"/>'; }
+  g.forEach(function(x,i){ var bh=(H-36)*x.n/mx, X=P+i*bw+bw*.15, Y=H-26-bh;
+    h+='<rect x="'+X.toFixed(1)+'" y="'+Y.toFixed(1)+'" width="'+(bw*.7).toFixed(1)+'" height="'+Math.max(bh,1).toFixed(1)+'" rx="2.5" fill="'+(i===g.length-1?'#FF6B4A':'#2E7BE6')+'"><title>'+dlab(x.g)+': '+x.n+'</title></rect>';
+    if((i%7===0&&i<g.length-4)||i===g.length-1) h+='<text x="'+(i===g.length-1?W:(X+bw*.35)).toFixed(1)+'" y="'+(H-8)+'" font-size="10" text-anchor="'+(i===g.length-1?'end':'middle')+'" fill="currentColor" fill-opacity=".6" font-family="IBM Plex Mono">'+dlab(x.g).replace(/^\S+ /,'')+'</text>'; });
+  h+='<text x="0" y="16" font-size="10" fill="currentColor" fill-opacity=".6" font-family="IBM Plex Mono">'+mx+'</text></svg>';
+  return h;
+}
+function feedRow(x,isNew){ return '<div'+(isNew?' class="new"':'')+'><time>'+hm(x.at)+'</time><span><span class="dot" style="background:'+hexOk(x.colore)+'"></span><b>'+esc(x.piano||'—')+'</b> · '+esc(x.azione)+(x.oggetto?' <em>“'+esc(x.oggetto)+'”</em>':'')+'<br><em>'+esc(x.email||'—')+'</em></span></div>'; }
+function renderStats(d,fresh){
+  stLast=d;
+  var k=[['hi',fmtN(d.modifiche_oggi),'modifiche oggi',fmtN(d.modifiche_7g)+' negli ultimi 7 giorni'],['hi',fmtN(d.attivi_24h),'utenti attivi',"accessi nelle ultime 24 h"],
+    ['',fmtN(d.piani),'piani',fmtN(d.membri)+' persone invitate'],['',fmtN(d.voci),'attività in piano',fmtN(d.materiali)+' con materiali'],
+    ['',fmtN(d.task),'daily task',fmtN(d.task_fatte)+' completate'],['',fmtN(d.utenti),'account',fmtN(d.utenti_confermati)+' confermati · '+fmtN(d.attivi_7g)+' attivi in 7 g']];
+  $('#st-kpi').innerHTML=k.map(function(x){return '<div class="kpi '+x[0]+'"><b>'+x[1]+'</b><span>'+x[2]+'</span><small>'+x[3]+'</small></div>';}).join('');
+  $('#st-chart').innerHTML=chart30(d.giorni||[]);
+  if(fresh!==false) $('#st-feed').innerHTML=(d.ultime||[]).length?(d.ultime||[]).map(function(x){return feedRow(x);}).join(''):'<p class="hint">Ancora nessuna modifica.</p>';
+  var ps=d.piani_elenco||[];
+  $('#st-plans').innerHTML=ps.length?'<table class="tbl"><tr><th>Piano</th><th>Proprietario</th><th>Date</th><th style="text-align:right">Voci</th><th style="text-align:right">Task</th><th style="text-align:right">Persone</th><th>Ultima modifica</th><th></th></tr>'+
+    ps.map(function(p){return '<tr><td><span class="dot" style="background:'+hexOk(p.colore)+'"></span><b>'+esc(p.nome)+'</b>'+(p.cliente?'<br><span class="hint">'+esc(p.cliente)+'</span>':'')+'</td><td>'+esc(p.proprietario||'—')+'</td><td style="white-space:nowrap">'+(p.dal?dd(p.dal)+(p.al&&p.al!==p.dal?' → '+dd(p.al):''):'—')+'</td><td class="n">'+fmtN(p.voci)+'</td><td class="n">'+fmtN(p.task)+'</td><td class="n">'+fmtN(p.persone)+'</td><td style="white-space:nowrap">'+ago(p.ultima)+'</td><td><a class="btn ghost small" href="app.html?p='+encodeURIComponent(p.id)+'">Apri</a></td></tr>';}).join('')+'</table>':'<p class="hint">Nessun piano ancora.</p>';
+  var st=d.stati||{}, tot=Object.keys(st).reduce(function(a,x){return a+st[x];},0)||1, cs={'Da confermare':'#E0920A','Confermato':'#2E7BE6','In corso':'#8B5CF6','Fatto':'#1F9D63','Annullato':'#7B8794'};
+  $('#st-stati').innerHTML=Object.keys(st).length?Object.keys(st).sort(function(a,b){return st[b]-st[a];}).map(function(x){return '<div class="sbar"><span>'+esc(x)+'</span><i style="width:'+Math.max(3,Math.round(st[x]/tot*100))*1.6+'px;background:'+(cs[x]||'#7B8794')+'"></i><b>'+fmtN(st[x])+'</b></div>';}).join(''):'<p class="hint">Nessuna voce.</p>';
+  var mt=d.materiali||0, mo=d.materiali_ok||0;
+  $('#st-mat').innerHTML='<div class="sbar"><span>Pronti</span><i style="width:'+(mt?Math.max(3,Math.round(mo/mt*160)):3)+'px;background:#1F9D63"></i><b>'+fmtN(mo)+' / '+fmtN(mt)+'</b></div>';
+  var us=d.utenti_elenco||[];
+  $('#st-users').innerHTML=us.length?'<table class="tbl"><tr><th>Email</th><th>Ultimo accesso</th><th>Iscritto</th><th style="text-align:right">Piani creati</th><th style="text-align:right">Inviti</th><th style="text-align:right">Modifiche</th></tr>'+
+    us.map(function(u){return '<tr><td>'+esc(u.email)+(u.confermato?'':' <span class="tag">da confermare</span>')+'</td><td style="white-space:nowrap">'+ago(u.ultimo_accesso)+'</td><td style="white-space:nowrap">'+dd(u.created_at)+'</td><td class="n">'+fmtN(u.piani_creati)+'</td><td class="n">'+fmtN(u.inviti)+'</td><td class="n">'+fmtN(u.modifiche)+'</td></tr>';}).join('')+'</table>':'<p class="hint">Nessun utente.</p>';
+  var n=new Date(); $('#st-when').textContent='In diretta · aggiornato alle '+pad(n.getHours())+':'+pad(n.getMinutes())+':'+pad(n.getSeconds());
+}
+async function loadStats(fresh){ try{ renderStats(await api.stats(),fresh); $('#st-live').classList.remove('off'); }catch(e){ $('#st-live').classList.add('off'); $('#st-when').textContent='Non riesco ad aggiornare: '+((e&&e.message)||'riprovo'); } }
+async function openStats(){
+  show('v-load'); await loadStats(); show('v-stats');
+  stUnsub=api.watch(function(row,status){
+    if(status){ if(status!=='SUBSCRIBED'&&status!=='CHANNEL_JOINED') $('#st-live').classList.add('off'); return; }
+    if(row&&stLast){ var p=(stLast.piani_elenco||[]).find(function(x){return x.id===row.piano_id;})||{}; var f=$('#st-feed'); if(f.querySelector('p')) f.innerHTML='';
+      f.insertAdjacentHTML('afterbegin',feedRow({at:row.at,email:row.email,azione:row.azione,oggetto:row.oggetto,piano:p.nome,colore:p.colore},true)); }
+    clearTimeout(stDeb); stDeb=setTimeout(function(){loadStats(false);},1500);
+  });
+  stTimer=setInterval(function(){ if(!document.hidden) loadStats(false); },30000);
+}
+
 /* ---------- navigazione ---------- */
 async function route(){
   if(!api||(mode==='sb'&&!user)) return;
   document.documentElement.style.removeProperty('--focus');
   var h=location.hash||'';
   var m=/^#(modifica|duplica)=(.+)$/.exec(h);
-  if(h==='#nuovo') openEditor(null,false);
+  if(h==='#statistiche'){ if(SUPER) openStats(); else location.hash=''; }
+  else if(h==='#nuovo') openEditor(null,false);
   else if(m){ if(!PLANS.length){ try{PLANS=await api.list();}catch(e){} } openEditor(decodeURIComponent(m[2]),m[1]==='duplica'); }
   else renderList();
 }
@@ -486,18 +623,20 @@ window.addEventListener('hashchange',route);
 function setMode(m){ $('#seg').querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.m===m));}); $('#f-in').hidden=m!=='in'; $('#f-up').hidden=m!=='up'; $('#f-pw').hidden=true; $('#seg').hidden=false; }
 $('#seg').addEventListener('click',function(e){var b=e.target.closest('[data-m]'); if(b) setMode(b.dataset.m);});
 function nextUrl(){ var q=/[?&]next=([^&]+)/.exec(location.search); if(!q) return ''; var u=decodeURIComponent(q[1]); return /^app\.html\?p=[\w-]+$/.test(u)?u:''; }
+var SUPER=false;
 async function signedIn(u){
   user=u; $('#who').hidden=false; $('#who-mail').textContent=u.email||'';
+  try{ SUPER=await api.isSuper(); }catch(e){ SUPER=false; } $('#b-stats').hidden=!SUPER;
   var n=nextUrl(); if(n){ location.replace(n); return; }
   route();
 }
-function signedOut(){ user=null; $('#who').hidden=true; PLANS=[]; show('v-auth'); setMode('in'); }
+function signedOut(){ SUPER=false; $('#b-stats').hidden=true; user=null; $('#who').hidden=true; PLANS=[]; show('v-auth'); setMode('in'); }
 
 async function boot(){
   var url=(CONFIG.SUPABASE_URL||'').trim(), key=(CONFIG.SUPABASE_ANON_KEY||'').trim();
   if(!url||!key||typeof supabase==='undefined'){
     if(url&&key){ show('v-auth'); $('#in-err').textContent='Sei offline: per entrare serve la connessione.'; $('#in-err').hidden=false; return; }
-    mode='demo'; api=demoApi(); user={id:'demo',email:'demo@locale'}; $('#who').hidden=false; $('#who-mail').textContent='Modalità demo'; $('#logout').hidden=true; route(); return;
+    mode='demo'; api=demoApi(); user={id:'demo',email:'demo@locale'}; $('#who').hidden=false; $('#who-mail').textContent='Modalità demo'; $('#logout').hidden=true; SUPER=true; $('#b-stats').hidden=false; route(); return;
   }
   mode='sb';
   var sb=supabase.createClient(url,key,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});

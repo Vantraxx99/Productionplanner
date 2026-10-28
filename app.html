@@ -753,7 +753,7 @@ function sbApi(sb){
     listTasks:async function(){ var r=await sb.from('task').select('*').eq('piano_id',PID).order('giorno').order('ordine').limit(3000); if(r.error) throw r.error; return r.data||[]; },
     saveTask:async function(o,id){ o.updated_by=(user&&user.email)||''; if(!id) o.piano_id=PID; var q=id?sb.from('task').update(o).eq('id',id):sb.from('task').insert(o); var r=await q.select().single(); if(r.error) throw r.error; return r.data; },
     removeTask:async function(id){ var r=await sb.from('task').delete().eq('id',id); if(r.error) throw r.error; },
-    role:async function(){ var r=await sb.rpc('ruolo',{p:PID}); if(r.error) throw r.error; var v=r.data; return v==='owner'?'admin':(v||'lettura'); },
+    role:async function(){ var r=await sb.rpc('ruolo',{p:PID}); if(r.error) throw r.error; var v=r.data; return v==='owner'?'admin':(v==='super'?'lettura':(v||'lettura')); },
     subscribe:function(onRow,onDel,onStatus){
       var f='piano_id=eq.'+PID;
       var ch=sb.channel('piano-'+PID)
@@ -1813,7 +1813,7 @@ if('serviceWorker' in navigator && /^https?:$/.test(location.protocol)){
   window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(function(r){try{r.update();}catch(e){}}).catch(function(){});});
 }
 /* aggiornamento automatico: se online c'è una versione nuova, l'app si ricarica da sola */
-var APP_V='pl-v1';
+var APP_V='pl-v2';
 function checkUpdate(){
   if(!/^https?:$/.test(location.protocol)) return;
   fetch('sw.js?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.text();}).then(function(t){

@@ -9,3 +9,7 @@ Sito: https://vantraxx99.github.io/Productionplanner/
 - `sw.js` — funzionamento offline; a ogni rilascio cambia `VERSION` qui e `APP_V` in `app.html`.
 
 Ruoli per piano: proprietario (chi lo crea), admin, solo alcuni campi, sola lettura.
+
+## Statistiche
+`stats.sql` (da eseguire dopo `schema.sql`) aggiunge il registro delle modifiche e la pagina Statistiche live,
+visibile solo all'account indicato in `is_super()` (roca.filippo1999@gmail.com), che può anche aprire ogni piano in sola lettura.
