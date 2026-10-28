@@ -10,8 +10,9 @@
 <meta name="apple-mobile-web-app-title" content="Piano">
 <title>Piano di produzione</title>
 <link rel="manifest" id="mf" href="manifest.webmanifest">
-<link rel="icon" href="icon-192.png" type="image/png">
-<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="favicon-32.png?v=2" sizes="32x32" type="image/png">
+<link rel="icon" href="favicon-64.png?v=2" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-v2.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -1813,7 +1814,7 @@ if('serviceWorker' in navigator && /^https?:$/.test(location.protocol)){
   window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(function(r){try{r.update();}catch(e){}}).catch(function(){});});
 }
 /* aggiornamento automatico: se online c'è una versione nuova, l'app si ricarica da sola */
-var APP_V='pl-v2';
+var APP_V='pl-v3';
 function checkUpdate(){
   if(!/^https?:$/.test(location.protocol)) return;
   fetch('sw.js?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.text();}).then(function(t){

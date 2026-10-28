@@ -1,6 +1,6 @@
 /* Service worker: l'app si apre anche senza rete.
    Cambia VERSION quando pubblichi una nuova versione (e APP_V in app.html). */
-const VERSION = 'pl-v2';
+const VERSION = 'pl-v3';
 const SHELL = ['./', 'index.html', 'app.html', 'config.js', 'manifest.webmanifest', 'icon-192.png'];
 
 self.addEventListener('install', e => {
